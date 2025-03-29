@@ -34,7 +34,7 @@ try {
     echo "<p>O que deseja fazer agora?</p>";
     echo "<ul>";
     echo "<li><a href='adicionar.html'>Adicionar outro livro</a></li>";
-    echo "<li><a href='ver.html'>Ver lista de livros</a></li>";
+    echo "<li><a href='ver.php'>Ver lista de livros</a></li>";
     echo "</ul>";
 } catch (PDOException $e) {
     echo "<p>Erro na conexão ou na inserção: " . $e->getMessage() . "</p>";
