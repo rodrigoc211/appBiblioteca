@@ -1,21 +1,72 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="pt">
+  <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Livro</title>
-</head>
-<body>
-    <h1>Adicionar Livro</h1>
-    <form action="adicionarHandle.php" method="post">
-        
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 15px;
+      }
+      input[type="checkbox"] {
+        margin-top: 10px;
+      }
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background: #45a049;
+      }
+
+      .formulario {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Adicionar Livro</h1>
+      <form class="formulario" action="adicionarHandle.php" method="post">
         <label for="titulo">Título:</label>
         <input type="text" name="titulo" id="titulo" maxlength="80" required>
         <br><br>
-        
+
         <label for="subtitulo">Subtítulo:</label>
         <input type="text" name="subtitulo" id="subtitulo" maxlength="80">
         <br><br>
-        
+
         <label for="autor">Autor:</label>
         <input type="text" name="autor" id="autor" maxlength="80">
         <br><br>
@@ -23,41 +74,51 @@
         <label for="editora">Editora:</label>
         <input type="text" name="editora" id="editora" maxlength="80">
         <br><br>
-        
+
         <label for="tema">Tema:</label>
         <select name="tema" id="tema" required>
-            <option value="História de Portugal">História de Portugal</option>
-            <option value="História Antiga">História Antiga</option>
-            <option value="História Medieval">História Medieval</option>
-            <option value="História Moderna">História Moderna</option>
-            <option value="História Contemporânea">História Contemporânea</option>
-            <option value="História Política">História Política</option>
-            <option value="História Religiosa">História Religiosa</option>
-            <option value="Teoria da História/Historiografia">Teoria da História/Historiografia</option>
-            <option value="Outra história">Outra história</option>
-            <option value="Biografias">Biografias</option>
-            <option value="Literatura Antiga">Literatura Antiga</option>
-            <option value="Literatura">Literatura</option>
-            <option value="Periódicos">Periódicos</option>
-        </select>
-        <br><br>
-        
-        <label for="lido">Lido:</label>
-        <input type="checkbox" name="lido" id="lido" value="1">
-        <br><br>
-        
-        <label for="lingua">Lingua:</label>
-        <select name="lingua" id="lingua" required>
-            <option value="Português">Português</option>
-            <option value="Francês">Francês</option>
-            <option value="Inglês">Inglês</option>
-            <option value="Italiano">Italiano</option>
-            <option value="Grego">Grego</option>
-            <option value="Latim">Latim</option>
+          <option value="História Antiga (Grécia)">História Antiga (Grécia)</option>
+          <option value="História Antiga (Roma)">História Antiga (Roma)</option>
+          <option value="História Antiga (Outra)">História Antiga (Outra)</option>
+          <option value="História Medieval (Europa)">História Medieval (Europa)</option>
+          <option value="História Medieval (Outra)">História Medieval (Outra)</option>
+          <option value="História Moderna (Europa)">História Moderna (Europa)</option>
+          <option value="História Moderna (Outra)">História Moderna (Outra)</option>
+          <option value="História Contemporânea (Europa)">História Contemporânea (Europa)</option>
+          <option value="História Contemporânea (Outra)">História Contemporânea (Outra)</option>
+          <option value="História de Portugal (Medieval)">História de Portugal (Medieval)</option>
+          <option value="História de Portugal (Moderna)">História de Portugal (Moderna)</option>
+          <option value="História de Portugal (Contemporânea)">História de Portugal (Contemporânea)</option>
+          <option value="História de Portugal (Militar)">História de Portugal (Militar)</option>
+          <option value="História de Portugal (Outra)">História de Portugal (Outra)</option>
+          <option value="História Religiosa (Cruzadas)">História Religiosa (Cruzadas)</option>
+          <option value="História Religiosa (Santos)">História Religiosa (Santos)</option>
+          <option value="História Religiosa (Outra)">História Religiosa (Outra)</option>
+          <option value="História Política">História Política</option>
+          <option value="Política">Política</option>
+          <option value="Biografias (Reis)">Biografias (Reis)</option>
+          <option value="Biografias (Outros)">Biografias (Outros)</option>
+          <option value="Literatura (Antiga)">Literatura (Antiga)</option>
+          <option value="Literatura (Portuguesa)">Literatura (Portuguesa)</option>
+          <option value="Literatura (Estrangeira)">Literatura (Estrangeira)</option>
         </select>
         <br><br>
 
+        <label for="lingua">Lingua:</label>
+        <select name="lingua" id="lingua" required>
+          <option value="Português">Português</option>
+          <option value="Francês">Francês</option>
+          <option value="Inglês">Inglês</option>
+          <option value="Italiano">Italiano</option>
+          <option value="Grego">Grego</option>
+          <option value="Latim">Latim</option>
+        </select>
+        <br><br>
+
+        <label for="lido">Lido: <input type="checkbox" name="lido" id="lido" value="1"></label>
+
         <input type="submit" value="Adicionar">
-    </form>
-</body>
+      </form>
+    </div>
+  </body>
 </html>

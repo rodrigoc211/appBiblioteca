@@ -14,6 +14,7 @@ try {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Listagem de Livros</title>
@@ -24,15 +25,20 @@ try {
             border-collapse: collapse;
             width: 100%;
         }
-        th, td {
+
+        th,
+        td {
             padding: 6px 10px;
             border: 1px solid #ccc;
         }
+
         th {
-            cursor: pointer; /* Indica que a coluna é clicável para ordenação */
+            cursor: pointer;
+            /* Indica que a coluna é clicável para ordenação */
         }
     </style>
 </head>
+
 <body>
     <h1>Livros disponíveis</h1>
 
@@ -47,39 +53,53 @@ try {
                 <th>Tema</th>
                 <th>Lido</th>
                 <th>Língua</th>
-                <th>Remover</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-        <?php if ($livros): ?>
-            <?php foreach ($livros as $livro): ?>
-            <tr>
-                <td><?php echo $livro['id']; ?></td>
-                <td><?php echo htmlspecialchars($livro['titulo']); ?></td>
-                <td><?php echo htmlspecialchars($livro['subtitulo']); ?></td>
-                <td><?php echo htmlspecialchars($livro['autor']); ?></td>
-                <td><?php echo htmlspecialchars($livro['editora']); ?></td>
-                <td><?php echo htmlspecialchars($livro['tema']); ?></td>
-                <td><?php echo $livro['lido'] ? 'Sim' : 'Não'; ?></td>
-                <td><?php echo htmlspecialchars($livro['lingua']); ?></td>
-                <td>
-                    <!-- Botão para Eliminar -->
-                    <form action="eliminarLivro.php" method="post" 
-                          onsubmit="return confirm('Tem certeza que deseja eliminar este livro?');">
-                        <input type="hidden" name="id" value="<?php echo $livro['id']; ?>">
-                        <input type="submit" value="Eliminar">
-                    </form>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <tr><td colspan="9">Não há livros registados.</td></tr>
-        <?php endif; ?>
+            <?php if ($livros): ?>
+                <?php
+                $index = 1;
+                foreach ($livros as $livro): ?>
+                    <tr>
+                        <td><?php echo $index; ?></td> <?php $index++; ?>
+                        <td><?php echo htmlspecialchars($livro['titulo']); ?></td>
+                        <td><?php echo htmlspecialchars($livro['subtitulo']); ?></td>
+                        <td><?php echo htmlspecialchars($livro['autor']); ?></td>
+                        <td><?php echo htmlspecialchars($livro['editora']); ?></td>
+                        <td><?php echo htmlspecialchars($livro['tema']); ?></td>
+                        <td><?php echo $livro['lido'] ? 'Sim' : 'Não'; ?></td>
+                        <td><?php echo htmlspecialchars($livro['lingua']); ?></td>
+                        <td>
+                            <!-- Botão para Editar e Eliminar -->
+                            <form action="editarLivro.php" method="post"
+                                onsubmit="return confirm('Editar?');">
+                                <input type="hidden" name="id" value="<?php echo $livro['id']; ?>">
+                                <input type="submit" value="Editar">
+                            </form>
+
+                            <form action="eliminarLivro.php" method="post"
+                                onsubmit="return confirm('Eliminar?');">
+                                <input type="hidden" name="id" value="<?php echo $livro['id']; ?>">
+                                <input type="submit" value="Eliminar">
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="9">Não há livros registados.</td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
 
     <p>
         <a href="adicionar.html">Adicionar livros</a>
     </p>
+    <p>
+        <a href="index.html">Voltar atrás</a>
+    </p>
 </body>
+
 </html>

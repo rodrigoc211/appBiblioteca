@@ -4,18 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Biblioteca Virtual</title>
+    <style>
+      /* Zerando margens/paddings padrões do navegador */
+      * {
+        margin: 0;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+
+      /* Configurações gerais de layout */
+      body {
+        display: grid; /* Usando Grid */
+        place-items: center; /* Centraliza horizontal e vertical */
+        grid-template-rows: auto auto auto; /* 3 linhas: Texto, Imagem, Botões */
+        gap: 2px; /* Espaço vertical entre linhas */
+        min-height: 50vh; /* Tela cheia */
+        font-family: Arial, sans-serif;
+        background-color: #ede8d0;
+      }
+
+      h1 {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      .image-container img {
+        max-width: 400px; /* ajuste a seu gosto */
+        height: auto;
+        display: block; /* garantia de comportamento previsível */
+      }
+
+      .button-container {
+        display: flex; /* Flex para organizar os botões */
+        gap: 6px; /* Espaço horizontal entre os botões */
+      }
+
+      .button-container form {
+        display: inline-block;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #4caf50; /* cor do botão */
+        color: #ffffff; /* cor do texto */
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049; /* cor de hover */
+      }
+    </style>
   </head>
   <body>
-    <form action="ver.php" method="get">
-      <input type="submit" value="ver" />
-    </form>
+    <!-- Texto -->
+    <h1>Biblioteca Virtual</h1>
 
-    <form action="adicionar.html" method="post">
-      <input type="submit" value="adicionar" />
-    </form>
+    <!-- Imagem -->
+    <div class="image-container">
+      <img src="recursos/imagemBackground.jpeg" alt="Imagem da Biblioteca" />
+    </div>
 
-    <form action="db.php" method="post">
-      <input type="submit" value="estado" />
-    </form>
+    <br><br><br><br>
+    <!-- Botões -->
+    <div class="button-container">
+      <form action="ver.php" method="get">
+        <input type="submit" value="Ver Livros" />
+      </form>
+      <form action="adicionar.html" method="post">
+        <input type="submit" value="Adicionar Livros" />
+      </form>
+      <form action="db.php" method="post">
+        <input type="submit" value="Estado" disabled style="color: red;"/>
+      </form>
+    </div>
   </body>
 </html>
