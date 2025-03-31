@@ -187,6 +187,9 @@ try {
                         <option value="História Política" <?php echo (isset($livro['tema']) && $livro['tema'] == "História Política") ? 'selected' : ''; ?>>
                             História Política
                         </option>
+                        <option value="História Geral" <?php echo (isset($livro['tema']) && $livro['tema'] == "História Geral") ? 'selected' : ''; ?>>
+                            História Golítica
+                        </option>
                         <option value="Política" <?php echo (isset($livro['tema']) && $livro['tema'] == "Política") ? 'selected' : ''; ?>>
                             Política
                         </option>
@@ -211,6 +214,7 @@ try {
                     <label for="lingua">Língua:</label>
                     <select name="lingua" id="lingua" required>
                         <option value="Português" <?php echo (!isset($livro['lingua']) || $livro['lingua'] == "Português") ? 'selected' : ''; ?>>Português</option>
+                        <option value="Castelhano" <?php echo (!isset($livro['lingua']) || $livro['lingua'] == "Castelhano") ? 'selected' : ''; ?>>Castelhano</option>
                         <option value="Francês" <?php echo (isset($livro['lingua']) && $livro['lingua'] == "Francês") ? 'selected' : ''; ?>>Francês</option>
                         <option value="Inglês" <?php echo (isset($livro['lingua']) && $livro['lingua'] == "Inglês") ? 'selected' : ''; ?>>Inglês</option>
                         <option value="Italiano" <?php echo (isset($livro['lingua']) && $livro['lingua'] == "Italiano") ? 'selected' : ''; ?>>Italiano</option>
